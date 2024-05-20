@@ -1,0 +1,7 @@
+{
+  "name": "Ionic2Do",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
