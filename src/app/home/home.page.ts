@@ -88,6 +88,27 @@ export class HomePage {
     }
   }
 
+  deleteItem() {
+    const confirmDelete = confirm("¿Estás seguro de que deseas eliminar este ítem?");
+    if (confirmDelete) {
+      const taskIndex = this.tasks.length - 1; // Supongamos que queremos eliminar el último elemento de la lista
+      if (taskIndex >= 0) {
+        const taskId = this.tasks[taskIndex].id;
+        const taskRef = ref(this.db, 'tasks/' + taskId);
+        remove(taskRef)
+          .then(() => {
+            // Eliminamos el elemento localmente
+            this.tasks.splice(taskIndex, 1);
+          })
+          .catch((error) => {
+            console.error("Error al eliminar el ítem:", error);
+          });
+      } else {
+        alert("No hay elementos para eliminar.");
+      }
+    }
+  }
+
   trackItems(index: number, itemObject: any) {
     return itemObject.title;
   }
