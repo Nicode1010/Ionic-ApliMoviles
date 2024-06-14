@@ -33,3 +33,19 @@
     </ion-item-sliding>
   </ion-list>
 </ion-content>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Task Modal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Task Title</ion-label>
+    <ion-input [(ngModel)]="task.title"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="saveTask()">Save</ion-button>
+</ion-content>
